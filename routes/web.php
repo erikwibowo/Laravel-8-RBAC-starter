@@ -22,13 +22,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::prefix('admin')->middleware('role:admin')->group(function () {
-    Route::get('/', function () {
-        return view('user.layout.master');
-    })->name('admin');
+    Route::get('/', [HomeController::class, 'index'])->name('admin');
 });
 
 Route::prefix('user')->middleware('role:user')->group(function () {
-    Route::get('/', function () {
-        return view('user.layout.master');
-    })->name('user');
+    Route::get('/', [HomeController::class, 'index'])->name('user');
 });
