@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -20,12 +21,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('admin')->middleware('role:admin')->group(function () {
+    Route::get('/', function () {
+        return view('user.layout.master');
+    })->name('admin');
+});
 
-Route::get('admin-page', function () {
-    return 'Halaman untuk Admin';
-})->middleware('role:admin')->name('admin.page');
-
-Route::get('user-page', function () {
-    return 'Halaman untuk User';
-})->middleware('role:user')->name('user.page');
+Route::prefix('user')->middleware('role:user')->group(function () {
+    Route::get('/', function () {
+        return view('user.layout.master');
+    })->name('user');
+});
