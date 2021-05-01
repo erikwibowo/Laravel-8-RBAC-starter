@@ -7,11 +7,11 @@
                     <div class="auth-logo mb-5">
                         <a href="index.html"><img src="{{ asset('template/admin/assets/images/logo/logo.png') }}" alt="Logo"></a>
                     </div>
-                    <h1 class="auth-title">{{ __('Register') }}</h1>
+                    <h1 class="auth-title">@lang('title.register')</h1>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         <div class="form-group position-relative mb-4">
-                            <input id="name" type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Name">
+                            <input id="name" type="text" class="form-control form-control-xl @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="@lang('title.name')">
                             @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -19,7 +19,7 @@
                             @enderror
                         </div>
                         <div class="form-group position-relative mb-4">
-                            <input id="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                            <input id="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="@lang('title.email')">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -28,7 +28,7 @@
                             @enderror
                         </div>
                         <div class="form-group position-relative mb-4">
-                            <input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                            <input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="@lang('title.password')">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -37,12 +37,12 @@
                             @enderror
                         </div>
                         <div class="form-group position-relative mb-4">
-                            <input id="password-confirm" type="password" class="form-control form-control-xl" form-control-xl name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                            <input id="password-confirm" type="password" class="form-control form-control-xl" form-control-xl name="password_confirmation" required autocomplete="new-password" placeholder="@lang('title.confirm-password')">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-xl shadow-lg mt-4">{{ __('Register') }}</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-xl shadow-lg mt-4">@lang('title.register')</button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-4">
-                        <p class='text-gray-600'>Already have an account? <a href="{{ route('login') }}" class="font-bold">{{ __('Login') }}</a></p>
+                        <p class='text-gray-600'>@lang('title.have-account') <a href="{{ route('login') }}" class="font-bold">@lang('title.login')</a></p>
                     </div>
                 </div>
             </div>

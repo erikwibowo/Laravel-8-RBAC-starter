@@ -7,12 +7,12 @@
                     <div class="auth-logo">
                         <a href="index.html"><img src="{{ asset('template/admin/assets/images/logo/logo.png') }}" alt="Logo"></a>
                     </div>
-                    <h1 class="auth-title">{{ __('Confirm Password') }}</h1>
+                    <h1 class="auth-title">@lang('title.confirm-password')</h1>
                     {{ __('Please confirm your password before continuing.') }}
                     <form method="POST" action="{{ route('password.confirm') }}">
                         @csrf
                         <div class="form-group position-relative mb-4">
-                            <input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="@lang('title.password')">
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -22,7 +22,7 @@
                         <div class="form-check form-check-lg d-flex align-items-end">
                             <input class="form-check-input me-2" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                             <label class="form-check-label text-gray-600" for="remember">
-                                {{ __('Remember Me') }}
+                                @lang('title.rememberme')
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block btn-xl shadow-lg mt-4">{{ __('Confirm Password') }}</button>

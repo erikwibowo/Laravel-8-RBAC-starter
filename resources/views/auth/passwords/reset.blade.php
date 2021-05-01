@@ -7,11 +7,11 @@
                     <div class="auth-logo">
                         <a href="index.html"><img src="{{ asset('template/admin/assets/images/logo/logo.png') }}" alt="Logo"></a>
                     </div>
-                    <h1 class="auth-title">{{ __('Reset Password') }}</h1>
+                    <h1 class="auth-title">@lang('title.reset-password')</h1>
                     <form method="POST" action="{{ route('password.update') }}">
                         @csrf
                         <div class="form-group position-relative mb-4">
-                            <input id="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                            <input id="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus placeholder="@lang('title.email')">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
                             @enderror
                         </div>
                         <div class="form-group position-relative mb-4">
-                            <input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+                            <input id="password" type="password" class="form-control form-control-xl @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="@lang('title.password')">
 
                             @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -29,9 +29,9 @@
                             @enderror
                         </div>
                         <div class="form-group position-relative mb-4">
-                            <input id="password-confirm" type="password" class="form-control form-control-xl" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm Password">
+                            <input id="password-confirm" type="password" class="form-control form-control-xl" name="password_confirmation" required autocomplete="new-password" placeholder="@lang('title.confirm-password')">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-xl shadow-lg mt-4">{{ __('Reset Password') }}</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-xl shadow-lg mt-4">@lang('title.reset-password')</button>
                     </form>
                 </div>
             </div>

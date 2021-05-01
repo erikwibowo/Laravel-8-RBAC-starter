@@ -7,11 +7,11 @@
                     <div class="auth-logo">
                         <a href="index.html"><img src="{{ asset('template/admin/assets/images/logo/logo.png') }}" alt="Logo"></a>
                     </div>
-                    <h1 class="auth-title">{{ __('Reset Password') }}</h1>
+                    <h1 class="auth-title">@lang('title.reset-password')</h1>
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
                         <div class="form-group position-relative mb-4">
-                            <input id="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                            <input id="email" type="email" class="form-control form-control-xl @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="@lang('title.email')">
 
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -19,7 +19,7 @@
                                 </span>
                             @enderror
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-xl shadow-lg mt-3">{{ __('Send Password Reset Link') }}</button>
+                        <button type="submit" class="btn btn-primary btn-block btn-xl shadow-lg mt-3">@lang('title.send-link')</button>
                     </form>
                 </div>
             </div>

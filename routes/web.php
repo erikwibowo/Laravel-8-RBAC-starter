@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,9 @@ Auth::routes();
 
 Route::prefix('admin')->middleware('role:admin')->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('admin');
+
+    //Manage Data User
+    Route::get('/user', [UserController::class, 'index'])->name('admin.user');
 });
 
 Route::prefix('user')->middleware('role:user')->group(function () {

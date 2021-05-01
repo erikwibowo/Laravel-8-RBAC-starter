@@ -23,6 +23,7 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
+                session()->flash('notif', 'Selamat datang kembali ' . Auth::user()->name);
                 return redirect(route(Auth::user()->roles->pluck('name')->first()));
             }
         }
